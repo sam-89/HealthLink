@@ -1,0 +1,7 @@
+{
+  "name": "HealthLink Enterprise",
+  "description": "Enterprise onboarding and compliance platform for Healthcare Agents and Agencies. Features multi-persona workflows, smart onboarding wizard, and AI-powered document compliance.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
