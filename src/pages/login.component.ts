@@ -11,10 +11,8 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
   template: `
     <div class="flex min-h-screen w-full font-sans">
       <!-- Left Panel (Branding) -->
-      <div class="hidden lg:flex lg:w-1/2 bg-[#1883C7] flex-col justify-between p-16 text-white relative overflow-hidden">
-        <!-- Background Pattern/Gradient overlay -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent"></div>
-
+      <div class="hidden lg:flex lg:w-1/2 gradient-primary flex-col justify-between p-16 text-white relative overflow-hidden">
+        
         <!-- Header -->
         <div class="relative z-10 flex items-center gap-3">
            <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/30">
@@ -22,12 +20,12 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
              </svg>
            </div>
-           <span class="text-xl font-bold tracking-wide">HealthLink</span>
+           <span class="text-xl font-display font-bold tracking-wide">HealthLink</span>
         </div>
 
         <!-- Main Content -->
         <div class="relative z-10 max-w-lg mb-20">
-          <h1 class="text-5xl font-bold leading-tight mb-6">Streamline Your Healthcare Compliance</h1>
+          <h1 class="text-5xl font-display font-bold leading-tight mb-6">Streamline Your Healthcare Compliance</h1>
           <p class="text-blue-100 text-lg leading-relaxed">
             The enterprise platform for healthcare agent onboarding, licensing, and compliance management. 
             Join thousands of agencies who trust HealthLink to manage their workforce.
@@ -48,13 +46,15 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
           
           <!-- Header (Mobile Logo visible only on small screens) -->
           <div class="lg:hidden flex justify-center mb-8">
-            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-2xl">H</span>
+            <div class="w-12 h-12 rounded-lg gradient-primary flex items-center justify-center">
+               <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+               </svg>
             </div>
           </div>
 
           <div class="text-center lg:text-left space-y-2">
-            <h2 class="text-3xl font-bold text-gray-900">Welcome back</h2>
+            <h2 class="text-3xl font-display font-bold text-gray-900">Welcome back</h2>
             <p class="text-slate-500">Sign in to your HealthLink account</p>
           </div>
 
@@ -68,7 +68,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
                 type="email" 
                 formControlName="email"
                 placeholder="you@company.com"
-                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400"
+                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-gray-400"
               >
             </div>
 
@@ -76,7 +76,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
             <div class="space-y-2">
               <div class="flex items-center justify-between">
                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <a href="#" class="text-sm font-medium text-blue-600 hover:text-blue-500">Forgot password?</a>
+                <a href="#" class="text-sm font-medium text-primary hover:text-primary/80">Forgot password?</a>
               </div>
               <div class="relative">
                 <input 
@@ -84,7 +84,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
                   [type]="showPassword() ? 'text' : 'password'" 
                   formControlName="password"
                   placeholder="••••••••"
-                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder:text-gray-400 pr-10"
+                  class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all placeholder:text-gray-400 pr-10"
                 >
                 <button 
                   type="button" 
@@ -111,7 +111,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
                 id="remember-me" 
                 name="remember-me" 
                 type="checkbox" 
-                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
               >
               <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me for 30 days</label>
             </div>
@@ -119,7 +119,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
             <!-- Submit Button -->
             <button 
               type="submit" 
-              class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#1570EF] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
             >
               Sign in
             </button>
@@ -140,21 +140,21 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
             <button 
               type="button"
               (click)="autofill('AGENT')"
-              class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
             >
               Agent
             </button>
              <button 
               type="button"
               (click)="autofill('AGENCY_ADMIN')"
-              class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
             >
               Agency
             </button>
              <button 
               type="button"
               (click)="autofill('OPS_ADMIN')"
-              class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
             >
               Ops
             </button>
@@ -163,7 +163,7 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
           <!-- Footer Link -->
           <p class="text-center text-sm text-gray-600 pt-4">
             Don't have an account? 
-            <a href="#" class="font-medium text-blue-600 hover:text-blue-500">Register now</a>
+            <a href="#" class="font-medium text-primary hover:text-primary/80">Register now</a>
           </p>
 
         </div>

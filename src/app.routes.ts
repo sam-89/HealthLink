@@ -7,12 +7,16 @@ import { AgentDashboardComponent } from './pages/agent-dashboard.component';
 import { DocumentCenterComponent } from './pages/document-center.component';
 import { AgentDocumentsComponent } from './pages/agent-documents.component';
 import { AgentProfileComponent } from './pages/agent-profile.component';
+import { AgentServicesComponent } from './pages/agent-services.component';
+import { ApplyLicenseComponent } from './pages/apply-license.component';
+import { NewInsuranceLicenseComponent } from './pages/new-insurance-license.component';
 import { AgencyDashboardComponent } from './pages/agency-dashboard.component';
 import { AgencyAgentsComponent } from './pages/agency-agents.component';
 import { AgencyComplianceComponent } from './pages/agency-compliance.component';
 import { AgencySettingsComponent } from './pages/agency-settings.component';
 import { OpsDashboardComponent } from './pages/ops-dashboard.component';
 import { OpsVerificationComponent, OpsAgenciesComponent, OpsAgentsComponent } from './pages/ops-features.component';
+import { OpsDocumentReviewComponent } from './pages/ops-document-review.component';
 import { authGuard } from './core/auth.guard';
 
 export const routes: Routes = [
@@ -49,6 +53,21 @@ export const routes: Routes = [
         path: 'agent-profile',
         component: AgentProfileComponent,
         title: 'Profile | HealthLink'
+      },
+      {
+        path: 'agent-services',
+        component: AgentServicesComponent,
+        title: 'Services | HealthLink'
+      },
+      {
+        path: 'agent-services/licensing/apply',
+        component: ApplyLicenseComponent,
+        title: 'Apply for License | HealthLink'
+      },
+      {
+        path: 'agent-services/licensing/new-insurance',
+        component: NewInsuranceLicenseComponent,
+        title: 'New Insurance License | HealthLink'
       },
       // Agency Routes
       {
@@ -89,7 +108,7 @@ export const routes: Routes = [
       },
       {
         path: 'ops-documents',
-        component: DocumentCenterComponent,
+        component: OpsDocumentReviewComponent,
         title: 'Document Review | HealthLink'
       },
       {
@@ -105,4 +124,3 @@ export const routes: Routes = [
     ]
   }
 ];
-        

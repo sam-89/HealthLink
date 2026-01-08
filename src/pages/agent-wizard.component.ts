@@ -19,15 +19,15 @@ interface DocUpload {
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, StepperComponent, FileUploadComponent],
   template: `
-    <div class="max-w-6xl mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto py-6 animate-fade-in">
       <!-- Header -->
       <div class="mb-8">
-        <h1 class="text-2xl font-bold text-gray-900">Agent Onboarding</h1>
-        <p class="text-gray-500 mt-1">Complete all steps to activate your account</p>
+        <h1 class="text-3xl font-display font-bold text-foreground">Agent Onboarding</h1>
+        <p class="text-muted-foreground mt-1">Complete all steps to activate your account</p>
       </div>
 
       <!-- Stepper -->
-      <div class="mb-10">
+      <div class="mb-8">
         <app-stepper 
           [steps]="steps" 
           [activeIndex]="currentStep()" 
@@ -36,79 +36,76 @@ interface DocUpload {
       </div>
 
       <!-- Main Content Card -->
-      <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden min-h-[500px] flex flex-col">
+      <div class="bg-card rounded-xl shadow-card border border-border overflow-hidden min-h-[500px] flex flex-col">
         
         <div class="flex-1 p-8">
           
           <!-- STEP 1: Profile -->
           @if (currentStep() === 0) {
-            <div class="animate-fade-in max-w-4xl">
-              <h2 class="text-xl font-bold text-gray-900">Profile</h2>
-              <p class="text-gray-500 text-sm mb-6">Enter your personal information</p>
+            <div class="animate-fade-in space-y-6">
+              <div>
+                <h2 class="text-xl font-bold text-foreground">Profile</h2>
+                <p class="text-muted-foreground text-sm">Enter your personal information</p>
+              </div>
 
               <form [formGroup]="profileForm" class="space-y-6">
                 <!-- Row 1 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
-                    <input type="text" formControlName="firstName" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="Sarah">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">First Name</label>
+                    <input type="text" formControlName="firstName" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="Sarah">
                   </div>
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
-                    <input type="text" formControlName="lastName" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="Johnson">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">Last Name</label>
+                    <input type="text" formControlName="lastName" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="Johnson">
                   </div>
                 </div>
 
                 <!-- Row 2 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                    <input type="email" formControlName="email" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="sarah@example.com">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">Email</label>
+                    <input type="email" formControlName="email" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="sarah@example.com">
                   </div>
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                    <input type="tel" formControlName="phone" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="(555) 123-4567">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">Phone</label>
+                    <input type="tel" formControlName="phone" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="(555) 123-4567">
                   </div>
                 </div>
 
                  <!-- Row 3 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">National Producer Number (NPN)</label>
-                    <input type="text" formControlName="npn" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="12345678">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">National Producer Number (NPN)</label>
+                    <input type="text" formControlName="npn" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="12345678">
                   </div>
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">SSN (Last 4)</label>
-                    <input type="text" formControlName="ssn" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="••••">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">SSN (Last 4)</label>
+                    <input type="text" formControlName="ssn" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="••••">
                   </div>
                 </div>
 
                  <!-- Row 4 -->
-                <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
-                  <input type="text" formControlName="streetAddress" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="123 Main St">
+                <div class="space-y-2">
+                  <label class="block text-sm font-medium text-foreground">Street Address</label>
+                  <input type="text" formControlName="streetAddress" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="123 Main St">
                 </div>
 
                  <!-- Row 5 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">City</label>
-                    <input type="text" formControlName="city" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white" placeholder="Los Angeles">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">City</label>
+                    <input type="text" formControlName="city" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="Los Angeles">
                   </div>
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">State</label>
-                    <div class="relative">
-                      <select formControlName="state" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all bg-gray-50/50 focus:bg-white appearance-none">
+                  <div class="space-y-2">
+                    <label class="block text-sm font-medium text-foreground">State</label>
+                    <select formControlName="state" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm">
                         <option value="">Select</option>
                         <option value="CA">California</option>
                         <option value="TX">Texas</option>
                         <option value="FL">Florida</option>
                         <option value="NY">New York</option>
                       </select>
-                      <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -118,80 +115,75 @@ interface DocUpload {
 
           <!-- STEP 2: Licenses -->
           @if (currentStep() === 1) {
-            <div class="animate-fade-in max-w-4xl">
-              <h2 class="text-xl font-bold text-gray-900">Licenses</h2>
-              <p class="text-gray-500 text-sm mb-6">Add your state licenses and lines of authority</p>
+            <div class="animate-fade-in space-y-6">
+              <div>
+                <h2 class="text-xl font-bold text-foreground">Licenses</h2>
+                <p class="text-muted-foreground text-sm">Add your state licenses and lines of authority</p>
+              </div>
               
               <form [formGroup]="licenseForm" class="space-y-6">
                   
                   <!-- Row 1: State & Number -->
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Licensed State</label>
-                        <div class="relative">
-                          <select formControlName="state" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white appearance-none text-gray-700">
+                      <div class="space-y-2">
+                        <label class="block text-sm font-medium text-foreground">Licensed State</label>
+                          <select formControlName="state" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm">
                             <option value="">Select state</option>
                             <option value="CA">California</option>
                             <option value="TX">Texas</option>
                             <option value="FL">Florida</option>
                             <option value="NY">New York</option>
                           </select>
-                          <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-gray-500">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                          </div>
-                        </div>
                       </div>
 
-                      <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">License Number</label>
-                        <input type="text" formControlName="licenseNumber" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-gray-50/50 focus:bg-white" placeholder="LIC-123456">
+                      <div class="space-y-2">
+                        <label class="block text-sm font-medium text-foreground">License Number</label>
+                        <input type="text" formControlName="licenseNumber" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm" placeholder="LIC-123456">
                       </div>
                   </div>
 
                   <!-- Row 2: Expiration -->
-                  <div class="md:w-1/2 md:pr-3">
-                     <label class="block text-sm font-medium text-gray-700 mb-1">Expiration Date</label>
-                     <div class="relative">
-                        <input type="date" formControlName="expirationDate" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none bg-white text-gray-700 placeholder-gray-400">
-                     </div>
+                  <div class="md:w-1/2 md:pr-3 space-y-2">
+                     <label class="block text-sm font-medium text-foreground">Expiration Date</label>
+                     <input type="date" formControlName="expirationDate" class="w-full px-3 py-2 border border-input rounded-md focus:ring-2 focus:ring-ring focus:border-input bg-background text-sm">
                   </div>
 
                   <!-- Row 3: Lines of Authority -->
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-3">Lines of Authority</label>
+                  <div class="space-y-3">
+                    <label class="block text-sm font-medium text-foreground">Lines of Authority</label>
                     <div class="flex flex-wrap gap-3">
                       <!-- Custom Toggle Button Component via Template Logic -->
-                      <label class="cursor-pointer select-none">
+                      <label class="cursor-pointer select-none group">
                         <input type="checkbox" formControlName="health" class="hidden peer">
-                        <div class="px-5 py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-slate-800 peer-checked:text-white peer-checked:border-slate-800 transition-all shadow-sm">
+                        <div class="px-4 py-2 border border-input rounded-md text-sm font-medium bg-background hover:bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground peer-checked:border-primary transition-all shadow-sm">
                            Health
                         </div>
                       </label>
 
-                       <label class="cursor-pointer select-none">
+                       <label class="cursor-pointer select-none group">
                         <input type="checkbox" formControlName="life" class="hidden peer">
-                        <div class="px-5 py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-slate-800 peer-checked:text-white peer-checked:border-slate-800 transition-all shadow-sm">
+                        <div class="px-4 py-2 border border-input rounded-md text-sm font-medium bg-background hover:bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground peer-checked:border-primary transition-all shadow-sm">
                            Life
                         </div>
                       </label>
 
-                       <label class="cursor-pointer select-none">
+                       <label class="cursor-pointer select-none group">
                         <input type="checkbox" formControlName="variable" class="hidden peer">
-                        <div class="px-5 py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-slate-800 peer-checked:text-white peer-checked:border-slate-800 transition-all shadow-sm">
+                        <div class="px-4 py-2 border border-input rounded-md text-sm font-medium bg-background hover:bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground peer-checked:border-primary transition-all shadow-sm">
                            Variable
                         </div>
                       </label>
 
-                       <label class="cursor-pointer select-none">
+                       <label class="cursor-pointer select-none group">
                         <input type="checkbox" formControlName="property" class="hidden peer">
-                        <div class="px-5 py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-slate-800 peer-checked:text-white peer-checked:border-slate-800 transition-all shadow-sm">
+                        <div class="px-4 py-2 border border-input rounded-md text-sm font-medium bg-background hover:bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground peer-checked:border-primary transition-all shadow-sm">
                            Property
                         </div>
                       </label>
 
-                       <label class="cursor-pointer select-none">
+                       <label class="cursor-pointer select-none group">
                         <input type="checkbox" formControlName="casualty" class="hidden peer">
-                        <div class="px-5 py-2.5 border border-gray-200 rounded-lg text-sm font-medium text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-slate-800 peer-checked:text-white peer-checked:border-slate-800 transition-all shadow-sm">
+                        <div class="px-4 py-2 border border-input rounded-md text-sm font-medium bg-background hover:bg-muted peer-checked:bg-primary peer-checked:text-primary-foreground peer-checked:border-primary transition-all shadow-sm">
                            Casualty
                         </div>
                       </label>
@@ -203,92 +195,86 @@ interface DocUpload {
           
           <!-- STEP 3: Background -->
           @if (currentStep() === 2) {
-             <div class="animate-fade-in max-w-4xl">
-               <h2 class="text-xl font-bold text-gray-900">Background</h2>
-               <p class="text-gray-500 text-sm mb-6">Answer background disclosure questions</p>
+             <div class="animate-fade-in space-y-6">
+               <div>
+                 <h2 class="text-xl font-bold text-foreground">Background</h2>
+                 <p class="text-muted-foreground text-sm">Answer background disclosure questions</p>
+               </div>
                
                <form [formGroup]="backgroundForm" class="space-y-8">
                   
                   <!-- Question 1 -->
-                  <div class="space-y-3">
-                    <label class="block text-gray-900 font-medium">Have you ever had an insurance license revoked, suspended, or denied?</label>
-                    <div class="flex items-center gap-6">
+                  <div class="space-y-3 p-4 border border-border rounded-lg bg-card/50">
+                    <label class="block text-foreground font-medium text-sm">Have you ever had an insurance license revoked, suspended, or denied?</label>
+                    <div class="flex items-center gap-6 pt-1">
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="licenseRevoked" [value]="false" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="licenseRevoked" [value]="false" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">No</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">No</span>
                       </label>
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="licenseRevoked" [value]="true" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="licenseRevoked" [value]="true" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">Yes</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">Yes</span>
                       </label>
                     </div>
                   </div>
 
                   <!-- Question 2 -->
-                  <div class="space-y-3">
-                    <label class="block text-gray-900 font-medium">Have you ever been convicted of a felony?</label>
-                    <div class="flex items-center gap-6">
+                  <div class="space-y-3 p-4 border border-border rounded-lg bg-card/50">
+                    <label class="block text-foreground font-medium text-sm">Have you ever been convicted of a felony?</label>
+                    <div class="flex items-center gap-6 pt-1">
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="felony" [value]="false" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="felony" [value]="false" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">No</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">No</span>
                       </label>
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="felony" [value]="true" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="felony" [value]="true" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">Yes</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">Yes</span>
                       </label>
                     </div>
                   </div>
 
                   <!-- Question 3 -->
-                  <div class="space-y-3">
-                    <label class="block text-gray-900 font-medium">Have you ever been subject to disciplinary action by any regulatory body?</label>
-                    <div class="flex items-center gap-6">
+                  <div class="space-y-3 p-4 border border-border rounded-lg bg-card/50">
+                    <label class="block text-foreground font-medium text-sm">Have you ever been subject to disciplinary action by any regulatory body?</label>
+                    <div class="flex items-center gap-6 pt-1">
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="disciplinaryAction" [value]="false" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="disciplinaryAction" [value]="false" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">No</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">No</span>
                       </label>
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="disciplinaryAction" [value]="true" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="disciplinaryAction" [value]="true" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">Yes</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">Yes</span>
                       </label>
                     </div>
                   </div>
 
                   <!-- Question 4 -->
-                  <div class="space-y-3">
-                    <label class="block text-gray-900 font-medium">Are you currently under investigation by any regulatory authority?</label>
-                    <div class="flex items-center gap-6">
+                  <div class="space-y-3 p-4 border border-border rounded-lg bg-card/50">
+                    <label class="block text-foreground font-medium text-sm">Are you currently under investigation by any regulatory authority?</label>
+                    <div class="flex items-center gap-6 pt-1">
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="investigation" [value]="false" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="investigation" [value]="false" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">No</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">No</span>
                       </label>
                       <label class="flex items-center gap-2 cursor-pointer group">
                          <div class="relative flex items-center justify-center">
-                            <input type="radio" formControlName="investigation" [value]="true" class="peer appearance-none w-5 h-5 border border-gray-300 rounded-full checked:border-blue-600 checked:border-2 transition-all">
-                            <div class="w-2.5 h-2.5 bg-blue-600 rounded-full absolute opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+                            <input type="radio" formControlName="investigation" [value]="true" class="peer appearance-none w-4 h-4 border border-input rounded-full checked:border-primary checked:border-4 transition-all">
                          </div>
-                         <span class="text-gray-700 group-hover:text-gray-900">Yes</span>
+                         <span class="text-sm text-foreground group-hover:text-primary transition-colors">Yes</span>
                       </label>
                     </div>
                   </div>
@@ -299,33 +285,36 @@ interface DocUpload {
 
           <!-- STEP 4: Documents -->
           @if (currentStep() === 3) {
-             <div class="animate-fade-in max-w-4xl">
-                <h2 class="text-xl font-bold text-gray-900">Documents</h2>
-                <p class="text-gray-500 text-sm mb-6">Upload required proofs</p>
+             <div class="animate-fade-in space-y-6">
+                <div>
+                  <h2 class="text-xl font-bold text-foreground">Documents</h2>
+                  <p class="text-muted-foreground text-sm">Upload required proofs</p>
+                </div>
+                
                 <div class="space-y-4">
                   @for (doc of documents(); track doc.name; let i = $index) {
-                     <div class="border border-gray-200 rounded-lg p-4 flex items-center justify-between bg-white hover:border-blue-400 transition-colors">
+                     <div class="border border-border rounded-lg p-4 flex items-center justify-between bg-card hover:border-primary/50 transition-colors">
                         <div class="flex items-center gap-4">
                           <div class="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
-                             [class.bg-green-100]="doc.status === 'UPLOADED'"
-                             [class.text-green-600]="doc.status === 'UPLOADED'"
-                             [class.bg-gray-100]="doc.status === 'PENDING'"
-                             [class.text-gray-500]="doc.status === 'PENDING'"
+                             [class.bg-success/15]="doc.status === 'UPLOADED'"
+                             [class.text-success]="doc.status === 'UPLOADED'"
+                             [class.bg-muted]="doc.status === 'PENDING'"
+                             [class.text-muted-foreground]="doc.status === 'PENDING'"
                           >
                              <!-- Icons -->
                              @if (doc.status === 'UPLOADED') {
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                              } @else {
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                                 </svg>
                              }
                           </div>
                           <div>
-                            <p class="font-medium text-gray-900">{{ doc.name }}</p>
-                            <p class="text-xs text-gray-500">
+                            <p class="font-medium text-foreground text-sm">{{ doc.name }}</p>
+                            <p class="text-xs text-muted-foreground">
                               @if (doc.status === 'UPLOADED') {
                                 {{ doc.file?.name }}
                               } @else {
@@ -335,9 +324,9 @@ interface DocUpload {
                           </div>
                         </div>
                         @if (doc.status === 'PENDING') {
-                           <button (click)="triggerUpload(i)" class="px-3 py-1.5 text-sm bg-white border border-gray-300 text-gray-700 font-medium rounded hover:bg-gray-50 transition-colors">Upload</button>
+                           <button (click)="triggerUpload(i)" class="px-3 py-1.5 text-xs bg-background border border-input text-foreground font-medium rounded hover:bg-muted transition-colors shadow-sm">Upload</button>
                         } @else {
-                           <button (click)="removeFile(i)" class="text-sm text-red-500 hover:text-red-700">Remove</button>
+                           <button (click)="removeFile(i)" class="text-xs text-destructive hover:underline">Remove</button>
                         }
                      </div>
                   }
@@ -351,10 +340,10 @@ interface DocUpload {
         </div>
 
         <!-- Actions Footer -->
-        <div class="px-8 py-6 bg-white border-t border-gray-100 flex justify-between items-center">
+        <div class="px-8 py-5 bg-muted/30 border-t border-border flex justify-between items-center rounded-b-xl">
            <button 
             (click)="prev()" 
-            class="px-5 py-2.5 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            class="px-4 py-2 border border-input bg-background rounded-lg text-foreground font-medium hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm shadow-sm"
             [disabled]="currentStep() === 0"
           >
             Back
@@ -363,14 +352,14 @@ interface DocUpload {
           @if (currentStep() < steps.length - 1) {
             <button 
               (click)="next()" 
-              class="px-5 py-2.5 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 shadow-sm transition-colors"
+              class="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 shadow-sm transition-colors text-sm"
             >
               Continue
             </button>
           } @else {
             <button 
               (click)="submit()" 
-              class="px-5 py-2.5 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 shadow-sm transition-colors"
+              class="px-4 py-2 bg-success text-success-foreground rounded-lg font-medium hover:bg-success/90 shadow-sm transition-colors text-sm"
             >
               Submit Application
             </button>
